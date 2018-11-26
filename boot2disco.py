@@ -7,10 +7,10 @@ import http.client
 def send( message ):
 
     # your webhook URL
-    webhookurl = "https://discordapp.com/api/webhooks/YOURHOOKGOESHERE"
+    webhookurl = "https://discordapp.com/api/webhooks/YOUR_CUSTOM_WEBHOOK_TOKEN_GOES_HERE"
 
     # compile the form data (BOUNDARY can be anything)
-    formdata = "------:::BOUNDARY:::\r\nContent-Disposition: form-data; name=\"content\"\r\n\r\n" + "SWmud has been up for " + message + "\r\n------:::BOUNDARY:::--"
+    formdata = "------:::BOUNDARY:::\r\nContent-Disposition: form-data; name=\"content\"\r\n\r\n" + "SWmud will reboot in " + message + "\r\n------:::BOUNDARY:::--"
 
     # get the connection and make the request
     connection = http.client.HTTPSConnection("discordapp.com")
