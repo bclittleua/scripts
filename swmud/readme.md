@@ -1,7 +1,7 @@
 These are the files used to run a discord bot for swmud.org that checks and returns remaining mud boot time.
 
 
-discobot.py is the bot itself and listens for /uptime to run manbc.sh
+discobot.py is the bot itself and listens for /uptime on the swmud discord server to run manbc.sh
 
 manbc.sh briefly connects to mud and grabs uptime from login prompt
 
