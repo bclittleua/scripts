@@ -12,5 +12,5 @@ discobot.py is the bot itself and listens for /uptime, /helpme, or /reboot on th
 discobot_keepalive.sh runs every 10 mins, checks to see if discobot.py is running. if not, discobot.py is called.
 
 Example Usage:
-mudup/mudbc.sh checks the uptime in seconds, calculates how much time has elapsed since uptime was written
+mudup/mudbc.sh checks the uptime in seconds, calculates how much time has elapsed since uptime was written,
 up2disco/boot2disco returns the value to discord via a webhook
