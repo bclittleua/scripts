@@ -22,5 +22,5 @@ async def on_message(message):
         result = subprocess.check_output(['/home/pi/bin/mud/mudbc.sh'])
 
 # run the bot
-bot = "NTE2MzQ1MDM1ODk0MDMwMzY3.DtyT-w.cRUCWaU3iWPEqCu9RX1gVAcdq-E"
+bot = "BOT-TOKEN-GOES-HERE"
 client.run(bot)
