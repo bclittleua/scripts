@@ -1,13 +1,12 @@
 These are the files used to run a discord bot for swmud.org that checks and returns remaining mud boot time.
 
+fetchmud.sh runs at a regular interval, connects to swmud, and writes uptime (in seconds) to a file
 
-discobot.py is the bot itself and listens for /uptime on the swmud discord server to run manbc.sh
+discobot.py is the bot itself and listens for /uptime, /helpme, or /reboot on the swmud discord server
+/uptime runs mudup.sh and up2disco.py
+/reboot runs mudbc.sh and boot2disco.py
 
-manbc.sh briefly connects to mud and grabs uptime from login prompt
+Example Usage:
+mudup/mudbc.sh checks the uptime in seconds, calculates how much time has elapsed since uptime was written
+up2disco/boot2disco returns the value to discord via a webhook
 
-uptime is subtracted from 7d7h for time remaining until reboot
-
-manbc.sh then calls boot2disco.py which sends the remaining time to discord via webhook
-
-
-bootcheck.sh is setup to return only the uptime vs time remaining
