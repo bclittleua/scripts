@@ -7,7 +7,7 @@ import http.client
 def send( message ):
 
     # your webhook URL
-    webhookurl = "https://discordapp.com/api/webhooks/516041675496357898/rWtIENFI3aewfq0_L-kHFjXaoZOE06WQBin1Mm6GDmc7d0ffZMXaui8fr5J4_k1Iz8xt"
+    webhookurl = "https://discordapp.com/api/webhooks/MY-WEBHOOK-TOKEN"
 
     # compile the form data (BOUNDARY can be anything)
     formdata = "------:::BOUNDARY:::\r\nContent-Disposition: form-data; name=\"content\"\r\n\r\n" + "SWmud will reboot in " + message + "\r\n------:::BOUNDARY:::--"
