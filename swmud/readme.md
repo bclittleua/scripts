@@ -4,18 +4,12 @@ fetchmud.sh runs at a regular interval, connects to swmud, and writes uptime (in
 
 discobot.py is the bot itself and listens for /uptime, /helpme, or /reboot on the swmud discord server
 
-/uptime runs mudup.sh and up2disco.py
+/uptime runs mudup.sh and writes to sw-up.log, then returns the sw-up.log value
 
-/reboot runs mudbc.sh and boot2disco.py
+/reboot runs mudbc.sh and writes to sw-rb.log, then returns the sw-rb.log value
 
 
 discobot_keepalive.sh runs every 10 mins, checks to see if discobot.py is running. if not, discobot.py is called.
 
-Example Usage:
-mudup/mudbc.sh checks the uptime in seconds, calculates how much time has elapsed since uptime was written,
-up2disco/boot2disco returns the value to discord via a webhook
 
-
-
-
-created following tutorials here: https://makerhacks.com/python-messages-discord/
+created mostly by following tutorials here: https://makerhacks.com/python-messages-discord/
