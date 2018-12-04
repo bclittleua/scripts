@@ -21,7 +21,7 @@ totalRem=$(echo $daysRem"D"$hoursRem"H"$minsRem"M")
 echo $totalRem > /home/pi/bin/mud/sw-rb.log
 
 #determine whether or not to send a warning to discord
-if [ "$secsUp" -le "1800" ]; then
+if [ "$secsUp" -ge "628200" ]; then
 	#call the DoomSayer to return calculated uptime to discord via webhook
 	sleep 2 | sudo python3.6 /home/pi/bin/mud/doomsayer.py $totalRem
 fi
