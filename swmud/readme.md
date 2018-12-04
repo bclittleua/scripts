@@ -6,7 +6,7 @@ These are the files used to run a discord bot for swmud.org that checks and retu
   * discobot_keepalive.sh runs every 10 mins, checks to see if discobot.py is running. if not, discobot.py is called.
 
 
-doomsdayClock.sh runs every 30 mins and IF time remaining =< 1800s doomsayer.py is called and shouts a warning to discord
+doomsdayClock.sh runs every 30 mins and IF time remaining =< 1800s THEN doomsayer.py is called and shouts a warning to discord
 
 
 
