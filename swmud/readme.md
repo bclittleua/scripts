@@ -1,4 +1,4 @@
-These are the files used to run a discord bot for swmud.org that checks and returns remaining mud boot time.
+These are the files used to run a discord bot for swmud.org that checks and returns current/remaining mud boot time.
   * fetchmud.sh runs at a regular interval, connects to swmud, and captures uptime (in seconds) to a file
   * discobot.py is the bot itself and listens for /uptime, /helpme, or /reboot on the swmud discord server
       * /uptime runs mudup.sh, which writes to sw-up.log, then returns the sw-up.log value
