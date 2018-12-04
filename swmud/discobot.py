@@ -4,8 +4,8 @@ import os
 import subprocess
 
 # files written after execution of subprocess scripts
-uptime = print(open('/home/pi/bin/mud/sw-up.log').read())
-reboot = print(open('/home/pi/bin/mud/sw-rb.log').read())
+uptime = open('/home/pi/bin/mud/sw-up.log').read()
+reboot = open('/home/pi/bin/mud/sw-rb.log').read()
 
 # discord client
 client = discord.Client()
