@@ -1,6 +1,6 @@
 #To ensure this script keeps running, add the following line to cron (minus the # of course)
 #*/1 * * * * ps aux|grep -v grep|grep discoMotion.py || nohup sudo python3.x /home/pi/discords/discoMotion.py &
-#HOW IT WORKS: once a minute cron will check to see if script is running, and if not starts it
+#HOW IT WORKS: once a minute cron will check to see if matching process is running, and if not starts process
 
 import os
 import sys
