@@ -31,6 +31,6 @@ async def on_message(message):
         result = subprocess.check_output(['/home/pi/bin/mud/mudbc.sh']);
         await client.send_message(message.channel, "The MUD will restart in " + open('/home/pi/bin/mud/sw-up.log').read())  
 
-# run the bot
+# run the bot using the tokenID you create at https://discordapp.com/developers/applications/
 bot = "53CR3T-130T-T0K3N-G035-H3R3"
 client.run(bot)
