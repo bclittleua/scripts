@@ -2,7 +2,8 @@
 # This script will crash if you briefly/periodically lose internet connectivity, to fix
 # You need to add the following line to sudo crontab (not user cron) to keep the bot running
 # */1 * * * * ps aux|grep -v grep|grep discobot.py||nohup sudo python3.6 /home/pi/bin/discords/discobot.py &
-# Every minute look for discobot.py and IF NOT FOUND, run dicscobot.  
+# Every minute look for discobot.py and IF NOT FOUND, run dicscobot. 
+# If run as user vs. root (cron vs. sudo cron) the sort method will not work and create multiple instances!
 
 import discord
 import sys
