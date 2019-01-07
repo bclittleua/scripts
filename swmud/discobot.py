@@ -11,10 +11,6 @@ import sys
 import os
 import subprocess
 
-# files written after execution of subprocess scripts
-#uptime = open('/home/pi/bin/mud/sw-up.log').read()
-#reboot = open('/home/pi/bin/mud/sw-up.log').read()
-
 # discord client
 client = discord.Client()
 
@@ -36,5 +32,5 @@ async def on_message(message):
         await client.send_message(message.channel, "The MUD will restart in " + open('/home/pi/bin/mud/sw-up.log').read())  
 
 # run the bot
-bot = "BOT-TOKEN-GOES-HERE"
+bot = "53CR3T-130T-T0K3N-G035-H3R3"
 client.run(bot)
