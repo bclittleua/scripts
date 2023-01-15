@@ -12,6 +12,8 @@
 #           \/     \/       \/                 \/                   \/     \/           \/    \/
 # COLONEL PANIC & THE BLUE WIZARDS: Arcade Button Sound Board v0.1
 # non-default dependencies: evdev
+# RPi MUST add the following to /boot/cmdline.txt for DragonRise USB encoders: usbhid.quirks=0x0079:0x0006:0x00000400
+
 from os import environ
 environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
 
