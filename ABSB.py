@@ -14,12 +14,17 @@
 # non-default dependencies: evdev
 from os import environ
 environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
+
 import pygame, time
 from evdev import InputDevice, categorize, ecodes, KeyEvent
+
 gamepad = InputDevice('/dev/input/event0')
+pygame.mixer.pre_init(frequency=44100, channels=2)
+
 print ('COLONEL PANIC & THE BLUE WIZARDS\nArcade Sound Board v0.1')
 time.sleep(2)
 print ('Listening...')
+
 for event in gamepad.read_loop():
     if event.type == ecodes.EV_KEY:
         keyevent = categorize(event)
@@ -35,26 +40,31 @@ for event in gamepad.read_loop():
                 sound = pygame.mixer.Sound('/home/pi/bin/sounds/paint_the_town_bgfx.wav')
                 sound.play()
             elif keyevent.scancode == 290:
-                print ('Button 02')
+                print ("Button 02: Blackwolf's Dark Army pt. 1 BGFX")
+                pygame.mixer.init()
+                sound = pygame.mixer.Sound('/home/pi/bin/sounds/blackwolf_pt1_bgfx.wav')
+                sound.play()
             elif keyevent.scancode == 291:
-                print ('Button 03')
+                print ('Button 03: unassigned')
             elif keyevent.scancode == 292:
-                print ('Button 04')
+                print ('Button 04: unassigned')
             elif keyevent.scancode == 293:
-                print ('Button 05')
+                print ('Button 05: unassigned')
             elif keyevent.scancode == 294:
-                print ('Button 06')
+                print ('Button 06: unassigned')
             elif keyevent.scancode == 295:
-                print ('Button 07')
+                print ('Button 07: unassigned')
             elif keyevent.scancode == 296:
-                print ('Button 08')
+                print ('Button 08: unassigned')
             elif keyevent.scancode == 297:
-                print ('Button 09')
+                print ('Button 09: unassigned')
             elif keyevent.scancode == 298:
-                print ('Button 10')
+                print ('Button 10: fetching current parameters...')
+                print (pygame.mixer.get_init())
             elif keyevent.scancode == 299: # RED Button
                 if pygame.mixer.get_init() is not None:
                     print ('Button 11: Fading out all channels in 5 seconds...')
+                    print ('(pressing a button now will fuck shit up!)')
                     pygame.mixer.fadeout(5000)
                     time.sleep(5)
                     pygame.mixer.quit()
