@@ -39,7 +39,7 @@ print ('COLONEL PANIC & THE BLUE WIZARDS\nArcade Sound Board v0.1')
 time.sleep(1)
 print ('Listening...')
 
-# scancodes 288-290
+# scancodes 288-299
 def t_red():
     global tr_status
     chan = 1
