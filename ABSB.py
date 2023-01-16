@@ -20,7 +20,7 @@ environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
 
 import pygame, time
 from evdev import InputDevice, categorize, ecodes, KeyEvent
-pygame.mixer.pre_init(frequency=44100, channels=2)
+pygame.mixer.pre_init(frequency=44100)
 
 gamepad = InputDevice('/dev/input/event0')
 
@@ -39,6 +39,19 @@ print ('COLONEL PANIC & THE BLUE WIZARDS\nArcade Sound Board v0.1')
 time.sleep(1)
 print ('Listening...')
 
+def reset_all():
+    global tr_status, br_status, ty_status, by_status, tg_status, bg_status, tb_status, bb_status, p1_status, p2_status
+    tr_status = 0
+    br_status = 0
+    ty_status = 0
+    by_status = 0
+    tg_status = 0
+    bg_status = 0
+    tb_status = 0
+    bb_status = 0
+    p1_status = 0
+    p2_status = 0
+
 # scancodes 288-299
 def t_red():
     global tr_status
@@ -48,6 +61,7 @@ def t_red():
     if tr_status == 0:
         print ('Starting Channel {0}: {1}'.format(chan, title))
         pygame.mixer.init()
+        pygame.mixer.set_num_channels(16)
         sound = pygame.mixer.Sound(path)
         pygame.mixer.Channel(chan).play(sound)
         tr_status = 1
@@ -64,6 +78,7 @@ def b_red():
     if br_status == 0:
         print ('Starting Channel {0}: {1}'.format(chan, title))
         pygame.mixer.init()
+        pygame.mixer.set_num_channels(16)
         sound = pygame.mixer.Sound(path)
         pygame.mixer.Channel(chan).play(sound)
         br_status = 1
@@ -75,12 +90,12 @@ def b_red():
 def t_yellow():
     global ty_status
     chan = 3
-    title = 'void'
-    path = '/path.wav'
-    print ('Button03: unassigned')
+    title = 'wake BGFX'
+    path = '/home/pi/bin/sounds/wake_bgfx.wav'
     if ty_status == 0:
         print ('Starting Channel {0}: {1}'.format(chan, title))
         pygame.mixer.init()
+        pygame.mixer.set_num_channels(16)
         sound = pygame.mixer.Sound(path)
         pygame.mixer.Channel(chan).play(sound)
         ty_status = 1
@@ -92,11 +107,12 @@ def t_yellow():
 def b_yellow():
     global by_status
     chan = 4
-    title = 'void'
-    print ('Button04: unassigned')
+    title = 'Wake the Dead full wav'
+    path = '/home/pi/bin/sounds/wake_the_dead_full.wav'
     if by_status == 0:
         print ('Starting Channel {0}: {1}'.format(chan, title))
         pygame.mixer.init()
+        pygame.mixer.set_num_channels(16)
         sound = pygame.mixer.Sound(path)
         pygame.mixer.Channel(chan).play(sound)
         by_status = 1
@@ -113,6 +129,7 @@ def t_green():
     if tg_status == 0:
         print ('Starting Channel {0}: {1}'.format(chan, title))
         pygame.mixer.init()
+        pygame.mixer.set_num_channels(16)
         sound = pygame.mixer.Sound(path)
         pygame.mixer.Channel(chan).play(sound)
         tg_status = 1
@@ -126,10 +143,10 @@ def b_green():
     chan = 6
     title = 'void'
     path = '/path.wav'
-    print ('Button06: unassigned')
     if bg_status == 0:
         print ('Starting Channel {0}: {1}'.format(chan, title))
         pygame.mixer.init()
+        pygame.mixer.set_num_channels(16)
         sound = pygame.mixer.Sound(path)
         pygame.mixer.Channel(chan).play(sound)
         bg_status = 1
@@ -146,6 +163,7 @@ def t_blue():
     if tb_status == 0:
         print ('Starting Channel {0}: {1}'.format(chan, title))
         pygame.mixer.init()
+        pygame.mixer.set_num_channels(16)
         sound = pygame.mixer.Sound(path)
         pygame.mixer.Channel(chan).play(sound)
         tb_status = 1
@@ -157,12 +175,12 @@ def t_blue():
 def b_blue():
     global bb_status
     chan = 8
-    title = 'void'
-    path = '/path.wav'
-    print ('Button08: unassigned')
+    title = 'Dark Army pt1'
+    path = '/home/pi/bin/sounds/dark_army_pt1_full.wav'
     if bb_status == 0:
         print ('Starting Channel {0}: {1}'.format(chan, title))
         pygame.mixer.init()
+        pygame.mixer.set_num_channels(16)
         sound = pygame.mixer.Sound(path)
         pygame.mixer.Channel(chan).play(sound)
         bb_status = 1
@@ -182,13 +200,13 @@ def player2():
     if pygame.mixer.get_init() is not None:
         print ('Button 11: Fading out all channels in 5 seconds...')
         print ('(pressing a button now will fuck shit up!)')
-        pygame.mixer.fadeout(5000)
-        time.sleep(5)
+        pygame.mixer.fadeout(5000) #this is in miliseconds
+        time.sleep(5) #this is in seconds, just how the two libs work...
         pygame.mixer.quit()
+        reset_all()
         print ('...done.')
     else:
         print ('Button 11: mixer not initialized')
-
 
 #meanwhile, in the for loop...
 for event in gamepad.read_loop():
