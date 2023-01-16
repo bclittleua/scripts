@@ -23,7 +23,6 @@ from evdev import InputDevice, categorize, ecodes, KeyEvent
 pygame.mixer.pre_init(frequency=44100)
 
 gamepad = InputDevice('/dev/input/event0')
-
 tr_status = 0
 br_status = 0
 ty_status = 0
